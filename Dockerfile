@@ -4,5 +4,8 @@ RUN mkdir /myapp
 WORKDIR /myapp
 ADD Gemfile /myapp/Gemfile
 ADD Gemfile.lock /myapp/Gemfile.lock
+ADD database.yml /myapp/config/database.yml
+CMD Gemfile << gem "Puma"
+ADD puma.rb /myapp/config/puma.rb
 RUN bundle install
 ADD . /myapp
